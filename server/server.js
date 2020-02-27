@@ -31,3 +31,51 @@ app.get('/get-cocktails', (req,res) => { //created api called get-cocktails
         res.send(cocktails) //calling the database to get the cocktail info e.g name,ingredients, image
     })
 });
+
+app.post('/add-cocktail', (req,res) => {
+        const name = req.body.name;
+        const ingredients1 = req.body.ingredients1;
+        const ingredients2 = req.body.ingredients2;
+        const ingredients3 = req.body.ingredients3;
+        const ingredients4 = req.body.ingredients4;
+        const ingredients5 = req.body.ingredients5;
+        const ingredients6 = req.body.ingredients6;
+        const ingredients7 = req.body.ingredients7;
+        const ingredients8 = req.body.ingredients8;
+        const ingredients9 = req.body.ingredients9;
+        const ingredients10 = req.body.ingredients10;
+        const ingredients11 = req.body.ingredients11;
+        const ingredients12 = req.body.ingredients12;
+        const ingredients13 = req.body.ingredients13;
+        const ingredients14 = req.body.ingredients14;
+        const ingredients15 = req.body.ingredients15;
+        const image = req.body.image;
+
+        CocktailSchema.create({
+            name:name,
+            ingredients1:ingredients1,
+            ingredients2:ingredients2,
+            ingredients3:ingredients3,
+            ingredients4:ingredients4,
+            ingredients5:ingredients5,
+            ingredients6:ingredients6,
+            ingredients7:ingredients7,
+            ingredients8:ingredients8,
+            ingredients9:ingredients9,
+            ingredients10:ingredients10,
+            ingredients11:ingredients11,
+            ingredients12:ingredients12,
+            ingredients13:ingredients13,
+            ingredients14:ingredients14,
+            ingredients15:ingredients15,
+            image:image
+        }, (err) => {
+
+            if (err) {
+                return res.send("Couldn't create record");
+            }
+
+            res.send("Record created");
+        
+        });
+});
