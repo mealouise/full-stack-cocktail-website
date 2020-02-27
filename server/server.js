@@ -24,15 +24,19 @@ app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
 
-app.get('/get-cocktails', (req,res) => { //created api called get-cocktails
+app.get('/get-cocktails', (req,res) => { //created api called get-cocktails (2 apis - returns all cocktails and lets you search for cocktails)
 
-    CocktailSchema.find({}, (err, cocktails) => {
+    const searchTerm = req.query.searchTerm; //if search term inst passed it returns everything
+
+    CocktailSchema.find({
+        name: new RegExp(searchTerm, "i") //find all records wit partial terms e.g tea - for long island tea or even just a letter e.g m brings back mojito
+    }, (err, cocktails) => {
         if (err) return res.render({err:err});
         res.send(cocktails) //calling the database to get the cocktail info e.g name,ingredients, image
     })
 });
 
-app.post('/add-cocktail', (req,res) => {
+app.post('/add-cocktail', (req,res) => { //allows users to create their own cocktail recipes in a database
         const name = req.body.name;
         const ingredients1 = req.body.ingredients1;
         const ingredients2 = req.body.ingredients2;
