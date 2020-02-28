@@ -33,9 +33,9 @@ class Search extends React.Component {
     return (
       <div className="Search">
         <input 
-          className="Search_input" 
+          className="Search__input" 
           type="text" 
-          placeholder="Search for cocktails" 
+          placeholder="Search for cocktails.." 
           onChange={(e) => {
             const value =  e.target.value; // Always the same to get a value from an input
             this.setState({
@@ -56,7 +56,8 @@ class Search extends React.Component {
 
               return (<div className="Search__result-item">
                 <img className="Search__result-image" src={result.image} />
-                <h2>{result.name}</h2>
+                <h2 className="Search__result-name">{result.name}</h2>
+                <p className="Search__result-description">{result.description}</p>
               </div>)
             })
           }

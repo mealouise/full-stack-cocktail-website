@@ -1,8 +1,25 @@
 .Search__result-item {
     display: inline-flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
 }
 .Search__result-image {
-    width: 100px;
+    width: 190px;
+    margin-right: 20px;
+}
+
+.Search__input {
+    width: 380px;
+    margin-bottom: 50px;
+    font-size: 25px;
+  }
+
+.Search__result-name {
+    color:white;
+}
+
+.Search__result-description {
+    color:white;
+    width:190px;
+
 }

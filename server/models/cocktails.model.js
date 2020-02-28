@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const cocktailSchema = new mongoose.Schema({
     name: {type:String, required:true},
+    description: {type:String, required:true},
     ingredients1: {type:String, required:true},
     ingredients2: {type:String, required:true},
     ingredients3: {type:String, required:true},
